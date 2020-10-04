@@ -1,0 +1,52 @@
+<div class="container index">
+    <div class="navbar">
+        <h2> Hepsi:</h2>
+        <a href="/" class="btn btn-info btn-sm">Anasayfa</a>
+        <a href="/people/new" class="btn btn-success btn-sm">Kayıt</a>
+        <a href="/people/login" class="btn btn-success btn-sm">Giriş</a>
+    </div>
+    {{#if success_msg}}
+    <strong style="color: green;">{{success_msg}}</strong>
+    {{/if}}
+    {{#if error}}
+    <strong style="color: red;">{{error}}</strong>
+    {{/if}}
+    {{#if error_msg}}
+    <strong style="color: red;">{{error_msg}}</strong>
+    {{/if}}
+    <div class="container animals mt-3">
+        {{#each people}}
+        <div class="card bg-success mb-2 text-center" style="width: 16rem;">
+            <a href="/people/{{this._id}}"><img src="{{this.animal.animalImage}}" class="card-img-top" alt="cuties"></a>
+            <a href="/people/{{this._id}}">
+                <div class="card-body mt-0">
+                    <h5 class="card-title">İsim: {{this.animal.name}}</h5>
+                    <h5 class="card-title">Yaş: {{this.animal.age}}</h5>
+                    <p class="card-text">
+                        {{this.animal.description}}
+                    </p>
+                    {{!-- <h6 class="card-subtitle mb-2">
+                        Owner:{{this.name}}
+                        Phone:{{this.phone}}
+                    </h6> --}}
+                </div>
+            </a>
+
+            {{!-- <a class="btn btn-success" data-toggle="collapse" href="#{{this._id}}" role="button" aria-expanded="false"
+                aria-controls="{{this._id}}">
+                <b>Contact</b>
+            </a>
+            <div class="collapse" id="{{this._id}}">
+                <div class="card card-body">
+                    <p style="font-size: 12px;" class="text-center">
+                        10myilmazgmail.com<br />+90 538 476 1082
+                    </p>
+                </div>
+            </div> --}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+{{>footer}}

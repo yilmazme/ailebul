@@ -1,0 +1,36 @@
+body {
+  background-color: #914c61;
+}
+img {
+  width: 100%;
+  height: 360px;
+}
+.animals {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 20px;
+}
+.card {
+  cursor: pointer;
+}
+.card:hover {
+  opacity: 0.8;
+}
+.card-body {
+  color: #333;
+}
+a:link {
+  text-decoration: none;
+}
+@media only screen and (max-width: 600px) {
+  .animals {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 80vw !important;
+  }
+  img {
+    height: auto;
+  }
+}

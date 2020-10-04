@@ -1,0 +1,34 @@
+body {
+  background-color: #914c61;
+  color: #fff;
+}
+img {
+  width: 100%;
+  height: 100% !important;
+}
+img:hover {
+  opacity: 0.8;
+}
+
+.pictures {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 5px;
+  position: relative;
+  left: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .pictures {
+    display: flex;
+    flex-wrap: wrap;
+    position: unset;
+    justify-content: center;
+  }
+  img {
+    width: 80vw;
+  }
+  .col-sm-3 {
+    text-align: center;
+  }
+}

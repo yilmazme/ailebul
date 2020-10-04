@@ -1,0 +1,63 @@
+<div class="navbar">
+    <h1 class="text-center mb-3">Aile Bul:</h1>
+    <a href="/people" class="btn btn-info btn-sm">Hepsini Gör</a>
+    <a href="/" class="btn btn-info btn-sm">Ana Sayfa</a>
+    <a href="/people/login" class="btn btn-success btn-sm">Giriş</a>
+</div>
+{{#if errorMsg}}
+<p style="color: rgb(189, 39, 39);">{{errorMsg}}</p>
+{{/if}}
+
+{{#if error_msg}}
+<p style="color: rgb(151, 17, 17);">{{error_msg}}</p>
+{{/if}}
+<div class="form">
+
+    <form action="/people/new" method="POST" enctype="multipart/form-data" class="mb-4">
+        <div class="form-group">
+            <label for="aname">Dostumuzun İsmi:</label>
+            <input type="text" name="aname" required class="form-control" value={{aname}}>
+        </div>
+        <div class=" form-group">
+            <label for="age">Yaşı:</label>
+            <input type="text" name="age" class="form-control" value={{age}}>
+        </div>
+        <div class="form-group">
+            <label for="description">Hakkında:</label>
+            <input type="text" name="description" class="form-control" value={{description}}>
+        </div>
+        <div class="form-group">
+
+            <input type="file" name="animalImage" id="image">
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="name">İsminiz:</label>
+            <input type="text" name="name" class="form-control" value={{name}}>
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefon:</label>
+            <input type="text" name="phone" class="form-control" placeholder="(e.g:05551234567)" value={{phone}}>
+        </div>
+        <div class="form-group">
+            <label for="region">Semt:</label>
+            <input type="text" name="region" class="form-control" value={{region}}>
+        </div>
+        <div class="form-group">
+            <label for="username">Kulanıcı İsmi:</label>
+            <input type="text" name="username" class="form-control" value={{username}}>
+        </div>
+        <div class="form-group">
+            <label for="password">Şifre:</label>
+            <input type="password" name="password" class="form-control">
+        </div>
+        <input type="submit" value="Kayıt" class="btn btn-success btn-sm">
+
+    </form>
+
+    <img class="img-thumbnail" src="../animals/catwhy.jpg" alt="cat">
+
+
+
+</div>
+{{>footer}}
