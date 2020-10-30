@@ -8,6 +8,13 @@ const passport = require("passport");
 const { ensureAuthenticated } = require("../config/auth");
 const { loggedUser } = require("../config/unauth");
 
+
+//prevent caching...after logout a user can't go back
+router.use(function(req, res, next) {
+  res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  next();
+});
+
 const multer = require("multer");
 
 const storage = multer.diskStorage({
