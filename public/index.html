@@ -7,18 +7,45 @@
         <meta name="keywords" content="hayvan, evcil, kedi, köpek, sahiplen" />
         <meta name="description" content="evcil hayvan sahiplenin-aile bulun" />
         <meta name="author" content="Mehmet Yilmaz" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
         <link rel="stylesheet" href="public.css">
         <link rel="icon" href="./animals/catwhy.jpg">
         <title>Aile Ol & Aile Bul</title>
     </head>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h3 class="mt-5">AİLE OL & AİLE BUL</h3>
+        <div class="container-max">
+            <div id="reveal" class="noReveal">
+                <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/people">Hepsini Gör</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/people/new">Üye Ol</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/people/login">Giriş Yap</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="one">
+            </div>
+            <div class="two">
+                <div class="intro">
+                    <h3 class="m-0">AİLE OL & AİLE BUL</h3>
                     <h5>Küçük Dostların Sayfasına Hoş Geldiniz</h5>
                     <div class=" mt-5">
                         <a href="/people" class="btn btn-primary">Hepsini Gör</a>
@@ -28,42 +55,20 @@
                     <div>
                         <br>
                         <br>
-                        <p>
+                        <p id="test">
                             Dostlarınıza yeni bir yuva bulun ya da onlara yeni bir yuva olun.
                         </p>
-                    </div>
-                </div>
-                <div class="col-sm-9">
-                    <div class="pictures mt-2">
-                        <div class="one">
-                            <img class="img" src="./animals/dog1.jpg" alt="cutie1">
-                        </div>
-                        <div class="one">
-                            <img class="img" src="./animals/catanddog.jpg" alt="cutie2">
-                        </div>
-                        <div class="one">
-                            <img class="img" src="./animals/catfunny.jpg" alt="cutie3">
-                        </div>
-                        <div class="one">
-                            <img class="img" src="./animals/catwhy.jpg" alt="cutie4">
-                        </div>
-                        <div class="one">
-                            <img class="img" src="./animals/newcat.jpg" alt="cutie5">
-                        </div>
-                        <div class="one">
-                            <img class="img" src="./animals/blackdog.jpg" alt="cutie6">
-                        </div>
-                        <div class="one">
-                            <img class="img" src="./animals/cat1.jpg" alt="cutie7">
-                        </div>
-                        <div class="one">
-                            <img class="img" src="./animals/redcat.jpg" alt="cutie8">
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <script src="public.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+            crossorigin="anonymous"></script>
     </body>
 
 </html>

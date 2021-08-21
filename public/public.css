@@ -1,36 +1,84 @@
 body {
-  background-color: #914c61;
-  color: #fff;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow-x: hidden;
 }
-img {
+
+.one{
+  position: sticky;
+  top: 0px;
   width: 100%;
-  height: 100% !important;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  background-image: url(./animals/newcat.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 1;
 }
-img:hover {
-  opacity: 0.8;
+.intro{
+padding: 2rem;
+color: white;
+height: 100%;
+width: 30vw;
+position: absolute;
+top:-80vh;
+right: 0px;
+z-index: 2;
+animation: introA 300ms ease-out 1s  forwards;
 }
 
-.pictures {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 5px;
+@keyframes introA{
+  from{right: -30vw;}
+  to{right: 0vw;}
+}
+.two{
   position: relative;
-  left: 40px;
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+background-color: white;
+z-index: 2;
 }
-
+.noReveal{
+  display: block;
+  position: fixed;
+  top:-4rem;
+  z-index: 4;
+  width: 100vw;
+  height:4rem;
+  animation: noreveal 200ms ease-out 0s  forwards;
+}
+.reveal{
+  display: block;
+  position: fixed;
+  top:0px;
+  z-index: 4;
+  width: 100vw;
+  height:4rem;
+  animation: reveal 200ms ease-out 0s  forwards;
+}
+@keyframes reveal{
+  from{top: -4rem;}
+  to{top: 0rem;}
+}
+@keyframes noreveal{
+  from{top: 0rem;}
+  to{top: -4rem;}
+}
+a:link {
+  text-decoration: none;
+}
 @media only screen and (max-width: 600px) {
-  .pictures {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 0px;
+
+  .card {
+    width: 80vw !important;
   }
   img {
-    width: 80vw;
-  }
-  .col-sm-3 {
-    text-align: center;
+    height: auto;
   }
 }
