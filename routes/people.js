@@ -139,9 +139,9 @@ router.post("/people/new", upload.single("animalImage"), (req, res) => {
             //save user
             user
               .save()
-              .then((result) => {
-                console.log(result);
-              })
+              // .then((result) => {
+              //   console.log(result);
+              // })
               .catch((err) => console.log(err));
             req.flash(
               "success_msg",
