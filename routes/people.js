@@ -8,10 +8,12 @@ const passport = require("passport");
 const { ensureAuthenticated } = require("../config/auth");
 const { loggedUser } = require("../config/unauth");
 
-
 //prevent caching...after logout a user can't go back
-router.use(function(req, res, next) {
-  res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+router.use(function (req, res, next) {
+  res.header(
+    "Cache-Control",
+    "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
+  );
   next();
 });
 
@@ -49,9 +51,11 @@ router.get("/people", (req, res) => {
     .lean()
     .then((data) => {
       res.render("index", {
-        title: "Hayvan Edin | Hepsi",
+        title: "Arkadaş Edin | Hepsi",
         people: data,
         style: "index.css",
+        icon: "./animals/catwhy.jpg",
+        logged: req.isAuthenticated(),
       });
     })
     .catch((err) => console.log(err));
@@ -62,6 +66,7 @@ router.get("/people/new", loggedUser, (req, res) => {
   res.render("new", {
     title: "Aile Bul | Kayıt",
     style: "../new.css",
+    icon: "../animals/catwhy.jpg",
   });
 });
 
@@ -71,6 +76,7 @@ router.post("/people/new", upload.single("animalImage"), (req, res) => {
     name,
     username,
     password,
+    tekrar,
     phone,
     region,
     aname,
@@ -82,11 +88,14 @@ router.post("/people/new", upload.single("animalImage"), (req, res) => {
   if (!name || !username || !password || !phone) {
     errorMsg = "! please fill all required files";
   }
-  if (password.length < 6) {
-    errorMsg = "! password should be at least 6 characters";
+  if (password.length < 8) {
+    errorMsg = "! password should be at least 8 characters";
   }
   if (!Number(phone)) {
     errorMsg = "! please provide a valid phone number";
+  }
+  if (password !== tekrar) {
+    errorMsg = "! password should be same";
   }
   if (errorMsg) {
     res.render("new", {
@@ -160,6 +169,7 @@ router.get("/people/login", loggedUser, (req, res) => {
   res.render("login", {
     title: "Aile Bul | Giriş",
     style: "../new.css",
+    icon: "../animals/catwhy.jpg",
   });
 });
 //user profile
@@ -167,6 +177,7 @@ router.get("/people/registered", ensureAuthenticated, (req, res) => {
   res.render("one", {
     title: "Aile Bul | Sayfam",
     style: "../one.css",
+    icon: "../animals/catwhy.jpg",
     name: req.user.name,
     username: req.user.username,
     phone: req.user.phone,
@@ -198,15 +209,18 @@ router.get("/people/:id", (req, res) => {
     .lean()
     .then((data) => {
       res.render("page", {
-        title: "Arkadaş Edin | Hepsi",
+        title: "Arkadaş Edin | ...",
         people: data,
         style: "../new.css",
+        icon: "../animals/catwhy.jpg",
+        logged: req.isAuthenticated(),
       });
     })
     .catch((err) => console.log(err));
 });
 
 //delete handle
+
 router.delete("/people/registered/:id", async (req, res) => {
   await User.findByIdAndDelete({ _id: req.params.id }, (err) => {
     if (err) {
