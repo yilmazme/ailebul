@@ -65,7 +65,7 @@ router.get("/people", (req, res) => {
 router.get("/people/new", loggedUser, (req, res) => {
   res.render("new", {
     title: "Aile Bul | Kayıt",
-    style: "../new.css",
+    style: "new.css",
     icon: "../animals/catwhy.jpg",
   });
 });
@@ -109,7 +109,7 @@ router.post("/people/new", upload.single("animalImage"), (req, res) => {
       age,
       description,
       title: "Aile Bul | Kayıt",
-      style: "../new.css",
+      style: "new.css",
     });
   } else {
     User.findOne({ username: username }).then((user) => {
@@ -122,7 +122,7 @@ router.post("/people/new", upload.single("animalImage"), (req, res) => {
           password,
           phone,
           title: "Aile Bul | Kayıt",
-          style: "../new.css",
+          style: "new.css",
         });
       } else {
         const user = new User({
@@ -168,7 +168,7 @@ router.post("/people/new", upload.single("animalImage"), (req, res) => {
 router.get("/people/login", loggedUser, (req, res) => {
   res.render("login", {
     title: "Aile Bul | Giriş",
-    style: "../new.css",
+    style: "new.css",
     icon: "../animals/catwhy.jpg",
   });
 });
@@ -176,7 +176,7 @@ router.get("/people/login", loggedUser, (req, res) => {
 router.get("/people/registered", ensureAuthenticated, (req, res) => {
   res.render("one", {
     title: "Aile Bul | Sayfam",
-    style: "../one.css",
+    style: "one.css",
     icon: "../animals/catwhy.jpg",
     name: req.user.name,
     username: req.user.username,
@@ -211,7 +211,7 @@ router.get("/people/:id", (req, res) => {
       res.render("page", {
         title: "Arkadaş Edin | ...",
         people: data,
-        style: "../new.css",
+        style: "new.css",
         icon: "../animals/catwhy.jpg",
         logged: req.isAuthenticated(),
       });
