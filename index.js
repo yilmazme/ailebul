@@ -56,8 +56,8 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 
-//do  not hardcode your password, use procces env!!!
-const MONGODB_URI = `mongodb+srv://mehmet1:${password}@cluster0.sw2lc.mongodb.net/Cluster0?retryWrites=true&w=majority`;
+//do  not hardcode your connection string, use procces env!!!
+const MONGODB_URI = process.env.DATABASE_URI;
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
