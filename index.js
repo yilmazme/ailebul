@@ -14,8 +14,6 @@ const app = express();
 //pass configuration
 require("./config/passport")(passport);
 
-const password = process.env.MY_PASSWORD;
-
 app.engine(
   "handlebars",
   exphbs({
